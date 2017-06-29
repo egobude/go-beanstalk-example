@@ -1,0 +1,18 @@
+version: "2"
+
+services:
+
+  consumer:
+    build: "./Consumer/"
+    environment:
+      BEANSTALKD_HOST: "beanstalkd"
+      BEANSTALKD_PORT: "11300"
+
+  producer:
+    build: "./Producer/"
+    environment:
+      BEANSTALKD_HOST: "beanstalkd"
+      BEANSTALKD_PORT: "11300"
+
+  beanstalkd:
+    image: "schickling/beanstalkd"
